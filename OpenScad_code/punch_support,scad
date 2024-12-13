@@ -1,0 +1,156 @@
+// The punch body of the paper_tape_punch
+// Name: punch_support.scad
+// Lars Silen 2024
+// This is free software. Feel free to use and modify. 
+// Punch body for paper tape punch 
+// Holes are only printed in one part because 
+// the whole assembled piece will be drilled as 
+// an unit to ensure good fitting.
+//
+// Different components are accessed by uncommenting different
+// modules at the end of the file. The module top1() is the top
+// part of the punch head. Holes ar printed in this part to help
+// drilling the head. Brass inserts 10x2 mm are epoxy glued into the
+// slots and a drilling support is inserted between the brass parts befor drilling. 
+// The punch head is screwed together before drilling. Mark one side with
+// a suitable pencil to ensure that the parts are mounted correctly to
+// fit together perfectly.
+// Parts needed are base(), top1(), riser(), riser1() and litter_box() 
+// 
+//rotate([0,-90,0])base();
+//base();
+//translate([50,0,0])top();
+//translate([0,-50,0])top1();
+//translate([45,0,0])nail_holder();
+//riser();
+//riser1();
+//translate([30,0,0])litter_box();
+//
+// base() in the bottom part of the punch head. 
+
+
+module base(){
+  difference(){  
+    //cube([45,40,25.2]);
+    cube([45,40,15]);  
+    //translate([-0.01,7.35,20])cube([50,25.3,30]);
+    translate([-0.01,7.35,23.5-10])cube([50,25.3,30]);  
+    //translate([-0.01,7.35,-0.01])cube([50,25.3,15]);
+    // Space for glued in brass insert
+    translate([22.5-5,-1,23.5-2.1-10])cube([10.1,42,15]);  
+    // Data holes  
+    //translate([22.5,7.35+2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+2*2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+3*2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+4*2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+5*2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    // Feeder hole
+    //translate([22.5,7.35+6*2.5,-0.01])cylinder(r=0.9,h=50,$fn=32);
+    // Data holes  
+    //translate([22.5,7.35+7*2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+8*2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+9*2.5,-0.01])cylinder(r=1.1,h=50,$fn=32);
+    // Screw brass inserts to fix top parts
+    translate([5,7.35/2,-0.01])cylinder(r=2.35,h=50,$fn=32);
+    translate([45-5,7.35/2,-0.01])cylinder(r=2.35,h=50,$fn=32);
+    translate([5,40-7.35/2,-0.01])cylinder(r=2.35,h=50,$fn=32);
+    translate([45-5,40-7.35/2,-0.01])cylinder(r=2.35,h=50,$fn=32);  
+  }
+}
+
+module top_base(){
+  cube([45,40,5]);
+  translate([-0.01,8,-0.01])cube([45,24,7.1]);  
+}
+
+module top(){
+  difference(){  
+    top_base();
+    // Data holes  
+    //translate([22.5,7.35+2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+2*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+3*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+4*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+5*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    // Feeder hole
+    //translate([22.5,7.35+6*2.5,-0.02])cylinder(r=0.8,h=50,$fn=32);
+    // Data holes  
+    //translate([22.5,7.35+7*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+8*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    //translate([22.5,7.35+9*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+    // Screw inserts top part
+    translate([5,7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32);
+    translate([45-5,7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32);
+    translate([5,40-7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32);
+    translate([45-5,40-7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32); 
+    // Space for punch die in brass. Epoxy glued in place before drilling 
+    translate([22.5-5,7.99,5])cube([10.2,25,2.5]);  
+  }  
+}
+
+module top1(){
+ difference(){   
+   cube([45,40,7]);
+   // Data holes  
+   translate([22.5,7.35+2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   translate([22.5,7.35+2*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   translate([22.5,7.35+3*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   translate([22.5,7.35+4*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   translate([22.5,7.35+5*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   // Feeder hole
+   translate([22.5,7.35+6*2.5,-0.02])cylinder(r=0.8,h=50,$fn=32);
+   // Data holes  
+   translate([22.5,7.35+7*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   translate([22.5,7.35+8*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   translate([22.5,7.35+9*2.5,-0.02])cylinder(r=1.1,h=50,$fn=32);
+   // Screw inserts top part
+   translate([5,7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32);
+   translate([45-5,7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32);
+   translate([5,40-7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32);
+   translate([45-5,40-7.35/2,-0.01])cylinder(r=1.6,h=50,$fn=32); 
+   // Brass insert  
+   translate([22.5-5,0,5])cube([10.2,40,2.1]);  
+ }    
+}
+
+module riser_base(){
+    cube([10,40,16]);    
+    difference(){  
+      translate([10,0,0])cube([10,40,3]);
+      translate([10+5,4,-1])cylinder(r=1.6,h=10,$fn=32);
+      translate([10+5,40-4,-1])cylinder(r=1.6,h=10,$fn=32);  
+    }  
+}
+
+module riser(){ 
+  difference(){  
+    riser_base();
+    translate([-0.01,7,-0.01])cube([45,26,15]);
+  }    
+}
+
+module riser1(){ 
+  difference(){  
+    riser_base();
+    translate([-8,7,-0.01])cube([15,26,15]);
+  }    
+}
+
+module litter_box(){
+  difference(){  
+    cube([25,35,14]);
+    translate([2,2,2])cube([21,31,14]);  
+  }
+  translate([0,-10,0])cube([25,10,2]);
+  translate([0,-10,0])cube([25,3,5]);  
+}
+
+//rotate([0,-90,0])base();
+//base();
+//translate([50,0,0])top();
+//translate([0,-50,0])top1();
+//translate([45,0,0])nail_holder();
+//riser();
+//riser_base();
+riser1();
+//translate([30,0,0])litter_box();
