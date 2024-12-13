@@ -31,3 +31,17 @@ needed for the towers are 3-d printed using an Anycubic I3 Mega. Parts have so f
 designed using the OpenScad language. I have also used FreeCAD for 3-d design but I find
 OpenScad easier to use when substantial changes occasionally are needed. OpenScad produces
 stl-files that are fed to the printer for printing.
+  I have tested that the micro servos should be strong enough to punch at least easily
+available paper receipt roll paper as long as the movement of the punches is kept short.
+  For punches I use drills 1.2 mm and 1.8 mm in diameter corresponding to the diameter
+of the holes in historic punched paper tapes. The paper is run between two brass drilled
+to fit the punches.
+  Paper advance is done using a stepper motor driving a 3-d printed cylinder covered by
+rubber to provide friction. A separate wheel presses the paper tape against the driver
+cylinder.
+  The punch and the paper advance is controlled by a Arduino Mega2560 micro controller.
+The micro controller is programmed using the Arduino IDE. The present version has been
+tested to some extent and should work as a starting point to drive both the servos
+and the stepper motor.
+
+
